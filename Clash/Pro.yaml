@@ -149,6 +149,15 @@ Proxy:
   # ws-path: /path
   # ws-headers:
   #   Host: v2ray.com
+#解锁网易云灰色歌曲(在线)
+- name: "解锁网易云灰色歌曲(在线)" 
+ type: http
+ server: unblockneteasemusic
+ port: 54444,
+ username: ""
+ password: !<str> ""
+ tls: false}
+
 
 # 其他协议如 Socks5、HTTP、Snell 示例如下
 
@@ -197,6 +206,13 @@ Proxy Group:
     - "4"
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
+
+Proxy Group:
+- name: Netease Music
+  type: select
+  proxies:
+  - DIRECT
+  - 网易云解锁
 
 # fallback 通过指定的 URL 测试并选择可用的节点，当 1 故障不可用时自动切换到 2 以此类推
 # - name: "Fallback"
